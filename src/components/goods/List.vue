@@ -25,9 +25,7 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="goAddPage()"
-            >添加商品</el-button
-          >
+          <el-button type="primary" @click="goAddPage()">添加商品</el-button>
         </el-col>
       </el-row>
       <!--      表格区域-->
@@ -41,9 +39,9 @@
         </el-table-column>
         <el-table-column prop="add_time" label="创建时间">
           <template slot-scope="scope">
-            {{scope.row.add_time | dataFormat}}
-            </template>
-           </el-table-column>
+            {{ scope.row.add_time | dataFormat }}
+          </template>
+        </el-table-column>
         <el-table-column label="操作" width="200">
           <template slot-scope="scope">
             <el-button
@@ -61,7 +59,7 @@
           </template>
         </el-table-column>
       </el-table>
-           <!-- 底部分页区域 -->
+      <!-- 底部分页区域 -->
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -117,11 +115,15 @@ export default {
     },
     // 监听删除商品按钮
     async delAttr(id) {
-      const confirmResult = await this.$confirm('此操作将永久删除该商品, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).catch(err => err)
+      const confirmResult = await this.$confirm(
+        '此操作将永久删除该商品, 是否继续?',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      ).catch((err) => err)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }

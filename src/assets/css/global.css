@@ -31,3 +31,7 @@ body,
 .ql-editor {
     min-height: 300px;
 }
+.el-tooltip__popper{
+    min-width: 4em;
+    text-align: center;
+}
